@@ -1,0 +1,415 @@
+<html>
+	<head>
+        <title>Smart Contract</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	</head>
+    <body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#">HIE Using Blockchain</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+				  </li>
+				</ul>
+                <!-- <li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        Wallet
+                    </button>
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Personal Data</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <input class="form-control me-2" id="name" type="text" placeholder="Name" aria-label="Name"><br>
+                                <input class="form-control me-2" id="Age1" type="text" placeholder="Age" aria-label="Age">
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" id="save" class="btn btn-primary">save</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </li> -->
+                
+			  </div>
+			</div>
+		  </nav>
+
+		  <br><br>
+        <div class="container border border-success my-3 shadow p-3 mb-5 bg-white rounded" style="padding: 1%;">
+			
+				<input class="form-control me-2" id="recent" type="text" placeholder="Recent Diagnosis Along with Date (mm-dd-yyyy)" aria-label="Diagnosis"><hr>
+                <button class="btn btn-outline-success" id="update">Update</button>
+				<!-- <button class="btn btn-outline-success"  id="withdraw">Spend</button> -->
+                <hr>
+            
+                <div class="d-flex justify-content-start">
+                  <div> <h2 >Name - &nbsp; </h2></div> 
+                  <div>  <h2 id="name" class="text-success" ></h2></div> 
+                </div>
+                <hr>
+
+                <div class="d-flex justify-content-start">
+                    <div> <h2>DOB - &nbsp; </h2></div> 
+                    <div>  <h2 id="dob" class="text-success"></h2></div> 
+                </div>
+                <hr>
+
+				<div class="d-flex justify-content-start">
+                    <div> <h2>Contact - &nbsp; </h2></div> 
+                    <div>  <h2 id="contact" class="text-success"></h2></div> 
+                </div>
+                <hr>
+
+				<div class="d-flex justify-content-start">
+                    <div> <h2>Email - &nbsp; </h2></div> 
+                    <div>  <h2 id="email" class="text-success"></h2></div> 
+                </div>
+                <hr>
+
+                <div class="d-flex justify-content-start">
+                    <div> <h2 > Recent Diagnosis - &nbsp; </h2></div> 
+                    <div>  <h2 id="recentD" class="text-success"></h2></div> 
+                  </div>
+                  <hr>
+
+                <div class="d-flex justify-content-start">
+                    <div> <h2 >Previous Diagnosis - &nbsp; </h2></div> 
+                    <div>  <h2 id="previous" class="text-success"></h2></div> 
+                </div>
+                <hr>	
+        </div>
+        
+		<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+        <script>
+           $(document).ready(function()
+            {
+                web3 = new Web3(web3.currentProvider);
+                var address="0x338CB7cD8243A42ec95961b965E78DE8D066d524";
+                var abi =[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "con",
+				"type": "int256"
+			}
+		],
+		"name": "giveContact",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "DOB",
+				"type": "string"
+			}
+		],
+		"name": "giveDOB",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "em",
+				"type": "string"
+			}
+		],
+		"name": "giveEmail",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "nm",
+				"type": "string"
+			}
+		],
+		"name": "giveName",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "p",
+				"type": "string"
+			}
+		],
+		"name": "givePid",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "pd",
+				"type": "string"
+			}
+		],
+		"name": "givePrevDia",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "rd",
+				"type": "string"
+			}
+		],
+		"name": "giveRecentDia",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getContact",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getDOB",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getEmail",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getName",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getPid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getPrevDia",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getRecentDia",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+
+                contract=new web3.eth.Contract(abi, address);
+                contract.methods.getRecentDia().call().then(function(recDia){
+                    $('#recentD').html(recDia);
+                })
+
+                contract.methods.getDOB().call().then(function(dob){
+                    $('#dob').html(dob);
+                })
+
+                contract.methods.getName().call().then(function(nam){
+                    $('#name').html(nam);
+                })
+
+                contract.methods.getPrevDia().call().then(function(prev){
+                    $('#previous').html(prev);
+                })
+
+				contract.methods.getContact().call().then(function(cont){
+                    $('#contact').html(cont);
+                })
+
+				contract.methods.getEmail().call().then(function(email){
+                    $('#email').html(email);
+                })
+
+            })
+
+            $('#update').click(function()
+			{
+				var dia = "";
+                dia = $('#recent').val();
+				window.ethereum.enable();
+				//web3.eth.enable();
+				web3.eth.getAccounts().then(function(accounts){
+					var acc = accounts[0];
+					return contract.methods.giveRecentDia(dia).send({from: acc});
+				}).then(function(tx){
+					console.log(tx);
+                    console.log(tx.blockHash)
+				}).catch(function(tx){
+					console.log(tx);
+				})
+			})
+
+			// contract.methods.getPrevDia().call().then( function( info ) { 
+					// 	var prevdia = "";
+					// 	prevdia= $('#recent').val() + $('#previous').val();
+					// 	return contract.methods.givePrevDia(prevdia).send({from:acc});
+						
+					// })
+
+            // $('#withdraw').click(function()
+			// {
+			// 	var amt = 0;
+            //     amt = parseInt($('#amount').val());
+			// 	window.ethereum.enable();
+			// 	//web3.eth.enable();
+			// 	web3.eth.getAccounts().then(function(accounts){
+
+			// 		var acc = accounts[0];
+			// 		return contract.methods.spend(amt).send({from: acc});
+			// 	}).then(function(tx){
+			// 		console.log(tx);
+            //         console.log(tx.blockHash)
+			// 	}).catch(function(tx){
+			// 		console.log(tx);
+			// 	})
+			// })
+
+            // $('#save').click(function()
+			// {
+			// 	var name = "";
+            //     name = $('#name').val();
+			// 	window.ethereum.enable();
+			// 	//web3.eth.enable();
+			// 	web3.eth.getAccounts().then(function(accounts){
+
+			// 		var acc = accounts[0];
+			// 		return contract.methods.givename(name).send({from: acc});
+			// 	}).then(function(tx){
+			// 		console.log(tx);
+            //         console.log(tx.blockHash)
+			// 	}).catch(function(tx){
+			// 		console.log(tx);
+			// 	})
+
+            //     var a = "";
+            //     a = $('#Age1').val();
+			// 	window.ethereum.enable();
+			// 	//web3.eth.enable();
+			// 	web3.eth.getAccounts().then(function(accounts){
+
+			// 		var acc = accounts[0];
+			// 		return contract.methods.giveAge(a).send({from: acc});
+			// 	}).then(function(tx){
+			// 		console.log(tx);
+            //         console.log(tx.blockHash)
+			// 	}).catch(function(tx){
+			// 		console.log(tx);
+			// 	})
+            // })
+        </script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </body>
+</html>
+

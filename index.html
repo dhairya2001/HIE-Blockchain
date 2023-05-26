@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Shop Homepage - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">HIE using Blockchain</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-6">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Healthcare Information Exchange Using Blockchain </h1>
+                    <!-- <p class="lead fw-normal text-white-50 mb-0"> Blockchain</p> -->
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-3">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-2 row-cols-xl-6 justify-content-center">
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="People-Patient-Male-icon.png" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Patient</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="patient.html">I am Patient</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img class="card-img-top" src="images.jpeg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Doctor</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="Doctorform.html">I am Doctor</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                           <!-- Product image-->
+                            <img class="card-img-top" src="admin.jpeg" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Admin</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="admin.html">I am Admin</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HIE PCCOE 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            // $(document).ready(function()
+            //  {
+            //      web3 = new Web3(web3.currentProvider);
+            //      var address="0x338CB7cD8243A42ec95961b965E78DE8D066d524";
+            //      var abi =[];
+ 
+            //      contract=new web3.eth.Contract(abi, address);
+            //      contract.methods.getName().call().then(function(nam){
+            //          $('#name').html(nam);
+            //      })
+ 
+            //      contract.methods.getContact().call().then(function(con){
+            //          $('#contact').html(con);
+            //      })
+ 
+            //      contract.methods.getPid().call().then(function(Pid){
+            //          $('#pid').html(Pid);
+            //      })
+ 
+            //      contract.methods.getEmail().call().then(function(email){
+            //          $('#email').html(email);
+            //      })
+ 
+            //      contract.methods.getDOB().call().then(function(dob){
+            //          $('#dob').html(dob);
+            //      })
+            //  })
+ 
+            //  $('#save').click(function()
+            //  {
+            //      var name = "";
+            //      name = $('#name').val();
+            //      window.ethereum.enable();
+            //      //web3.eth.enable();
+            //      web3.eth.getAccounts().then(function(accounts){
+ 
+            //          var acc = accounts[0];
+            //          return contract.methods.giveName(name).send({from: acc});
+            //      }).then(function(tx){
+            //          console.log(tx);
+            //          console.log(tx.blockHash)
+            //      }).catch(function(tx){
+            //          console.log(tx);
+            //      })
+ 
+            //      var email = "";
+            //      email = $('#email').val();
+            //      window.ethereum.enable();
+            //      //web3.eth.enable();
+            //      web3.eth.getAccounts().then(function(accounts){
+ 
+            //          var acc = accounts[0];
+            //          return contract.methods.giveEmail(email).send({from: acc});
+            //      }).then(function(tx){
+            //          console.log(tx);
+            //          console.log(tx.blockHash)
+            //      }).catch(function(tx){
+            //          console.log(tx);
+            //      })
+ 
+            //      var pid = "";
+            //      pid = $('#pid').val();
+            //      window.ethereum.enable();
+            //      //web3.eth.enable();
+            //      web3.eth.getAccounts().then(function(accounts){
+ 
+            //          var acc = accounts[0];
+            //          return contract.methods.givePid(pid).send({from: acc});
+            //      }).then(function(tx){
+            //          console.log(tx);
+            //          console.log(tx.blockHash)
+            //      }).catch(function(tx){
+            //          console.log(tx);
+            //      })
+ 
+            //      var db = "";
+            //      db = $('#dob').val();
+            //      window.ethereum.enable();
+            //      //web3.eth.enable();
+            //      web3.eth.getAccounts().then(function(accounts){
+ 
+            //          var acc = accounts[0];
+            //          return contract.methods.giveDOB(db).send({from: acc});
+            //      }).then(function(tx){
+            //          console.log(tx);
+            //          console.log(tx.blockHash)
+            //      }).catch(function(tx){
+            //          console.log(tx);
+            //      })
+ 
+            //      var cont = "";
+            //      cont = $('#contact').val();
+            //      window.ethereum.enable();
+            //      //web3.eth.enable();
+            //      web3.eth.getAccounts().then(function(accounts){
+ 
+            //          var acc = accounts[0];
+            //          return contract.methods.giveContact(cont).send({from: acc});
+            //      }).then(function(tx){
+            //          console.log(tx);
+            //          console.log(tx.blockHash)
+            //      }).catch(function(tx){
+            //          console.log(tx);
+            //      })
+ 
+            //      window.location.href="http://127.0.0.1:8545/accreated.html";
+            //  })
+         </script>
+    </body>
+</html>

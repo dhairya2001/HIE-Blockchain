@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<title>Bootstrap Simple Registration Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link href="css/admin.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">HIE using Blockchain</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="signup-form">
+    
+    <!-- form -->
+    <form role="doctorsubmission">
+		<h2>Register</h2>
+		<p class="hint-text">Create Doctor Account</p>
+        <div class="form-group">
+			<div class="row">
+				<div class="col"><input type="text" class="form-control" id="name" placeholder="Name" required="required"></div>
+			</div>        	
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" id="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+        	<input type="string" class="form-control" id="did" placeholder="Metamask ID" required="required">
+        </div>
+        <div class="form-group">
+        	<input type="text" class="form-control" id="special" placeholder="Specialization">
+        </div>
+		<div class="form-group">
+            <input type="number" class="form-control" id="contact" placeholder="Contact Number" required="required">
+        </div>
+		       
+        <div class="form-group">
+			<label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		
+        <div class="form-group">
+            <button type="submit" id="save" class="btn btn-success btn-lg btn-block" onclick="solve()">Create Doctor </button>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+        <script>
+           $(document).ready(function()
+            {
+                web3 = new Web3(web3.currentProvider);
+                var address="0x371c87a5125D0AE0176f81Bb78185f2Af1771890";
+                var abi =[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "con",
+				"type": "int256"
+			}
+		],
+		"name": "giveContact",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "id",
+				"type": "string"
+			}
+		],
+		"name": "giveDid",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "em",
+				"type": "string"
+			}
+		],
+		"name": "giveEmail",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "nm",
+				"type": "string"
+			}
+		],
+		"name": "giveName",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "spec",
+				"type": "string"
+			}
+		],
+		"name": "giveSpecialization",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getContact",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getDid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getEmail",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getname",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getSpecialization",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+                contract=new web3.eth.Contract(abi, address);
+                contract.methods.getname().call().then(function(nam){
+                    $('#name').html(nam);
+                })
+
+                contract.methods.getContact().call().then(function(con){
+                    $('#contact').html(con);
+                })
+
+                contract.methods.getDid().call().then(function(did){
+                    $('#did').html(did);
+                })
+
+                contract.methods.getEmail().call().then(function(email){
+                    $('#email').html(email);
+                })
+
+                contract.methods.getSpecialization().call().then(function(special){
+                    $('#special').html(special);
+                })
+            })
+
+            // $('#update').click(function()
+			// {
+			// 	var amt = "";
+            //     amt = $('#recentD').val();
+			// 	window.ethereum.enable();
+			// 	//web3.eth.enable();
+			// 	web3.eth.getAccounts().then(function(accounts){
+
+			// 		var acc = accounts[0];
+			// 		return contract.methods.recentDia(amt).send({from: acc});
+			// 	}).then(function(tx){
+			// 		console.log(tx);
+            //         console.log(tx.blockHash)
+			// 	}).catch(function(tx){
+			// 		console.log(tx);
+			// 	})
+			// })
+
+            // $('#withdraw').click(function()
+			// {
+			// 	var amt = 0;
+            //     amt = parseInt($('#amount').val());
+			// 	window.ethereum.enable();
+			// 	//web3.eth.enable();
+			// 	web3.eth.getAccounts().then(function(accounts){
+
+			// 		var acc = accounts[0];
+			// 		return contract.methods.spend(amt).send({from: acc});
+			// 	}).then(function(tx){
+			// 		console.log(tx);
+            //         console.log(tx.blockHash)
+			// 	}).catch(function(tx){
+			// 		console.log(tx);
+			// 	})
+			// })
+			$("doctorsubmission").on("submit",function(){
+				window.ethereum.enable();
+				
+			});
+            $('#save').click(function()
+			{
+				var name = "";
+                name = $('#name').val();
+				window.ethereum.enable();
+				//web3.eth.enable();
+				web3.eth.getAccounts().then(function(accounts){
+
+					var acc = accounts[0];
+					alert("The Form has been Submitted.");
+					return contract.methods.giveName(name).send({from: acc});
+				}).then(function(tx){
+					console.log(tx);
+                    console.log(tx.blockHash)
+				}).catch(function(tx){
+					console.log(tx);
+				})
+
+                var email = "";
+                email = $('#email').val();
+				window.ethereum.enable();
+				//web3.eth.enable();
+				web3.eth.getAccounts().then(function(accounts){
+
+					var acc = accounts[0];
+					return contract.methods.giveEmail(email).send({from: acc});
+				}).then(function(tx){
+					console.log(tx);
+                    console.log(tx.blockHash)
+				}).catch(function(tx){
+					console.log(tx);
+				})
+
+                var did = "";
+                did = $('#did').val();
+				window.ethereum.enable();
+				//web3.eth.enable();
+				web3.eth.getAccounts().then(function(accounts){
+
+					var acc = accounts[0];
+					return contract.methods.giveDid(did).send({from: acc});
+				}).then(function(tx){
+					console.log(tx);
+                    console.log(tx.blockHash)
+				}).catch(function(tx){
+					console.log(tx);
+				})
+
+                var spec = "";
+                spec = $('#special').val();
+				window.ethereum.enable();
+				//web3.eth.enable();
+				web3.eth.getAccounts().then(function(accounts){
+
+					var acc = accounts[0];
+					return contract.methods.giveSpecialization(spec).send({from: acc});
+				}).then(function(tx){
+					console.log(tx);
+                    console.log(tx.blockHash)
+				}).catch(function(tx){
+					console.log(tx);
+				})
+
+                var cont = "";
+                cont = $('#contact').val();
+				window.ethereum.enable();
+				//web3.eth.enable();
+				web3.eth.getAccounts().then(function(accounts){
+
+					var acc = accounts[0];
+					return contract.methods.giveContact(cont).send({from: acc});
+				}).then(function(tx){
+					console.log(tx);
+                    console.log(tx.blockHash)
+				}).catch(function(tx){
+					console.log(tx);
+				})
+            })
+			function solve() {
+						// contract.methods.getPid().call().then( function( info ) { 
+							// var Pid = "";
+							// Pid = $('#pid').val();
+							// console.log("Patient ID: ", info);
+							// if(info == Pid){
+								// document.getElementById('status').innerHTML = "ID Found";
+								window.location.href = "http://127.0.0.1:8545/accreated.html";
+							// }
+							// else{
+								// document.getElementById('status').innerHTML = "ID Not Found";
+							// }
+						// });
+						
+					}
+        </script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
