@@ -55,7 +55,7 @@
 		</div>
 		
         <div class="form-group">
-            <button type="submit" id="save" class="btn btn-success btn-lg btn-block" onclick="solve()">Create Doctor </button>
+            <button type="button" id="save" class="btn btn-success btn-lg btn-block">Create Doctor </button>
         </div>
     </form>
 </div>
@@ -237,51 +237,17 @@
                 })
             })
 
-            // $('#update').click(function()
-			// {
-			// 	var amt = "";
-            //     amt = $('#recentD').val();
-			// 	window.ethereum.enable();
-			// 	//web3.eth.enable();
-			// 	web3.eth.getAccounts().then(function(accounts){
-
-			// 		var acc = accounts[0];
-			// 		return contract.methods.recentDia(amt).send({from: acc});
-			// 	}).then(function(tx){
-			// 		console.log(tx);
-            //         console.log(tx.blockHash)
-			// 	}).catch(function(tx){
-			// 		console.log(tx);
-			// 	})
-			// })
-
-            // $('#withdraw').click(function()
-			// {
-			// 	var amt = 0;
-            //     amt = parseInt($('#amount').val());
-			// 	window.ethereum.enable();
-			// 	//web3.eth.enable();
-			// 	web3.eth.getAccounts().then(function(accounts){
-
-			// 		var acc = accounts[0];
-			// 		return contract.methods.spend(amt).send({from: acc});
-			// 	}).then(function(tx){
-			// 		console.log(tx);
-            //         console.log(tx.blockHash)
-			// 	}).catch(function(tx){
-			// 		console.log(tx);
-			// 	})
-			// })
 			$("doctorsubmission").on("submit",function(){
 				window.ethereum.enable();
 				
 			});
             $('#save').click(function()
+			// function solve()
 			{
 				var name = "";
                 name = $('#name').val();
 				window.ethereum.enable();
-				//web3.eth.enable();
+				// web3.eth.enable();
 				web3.eth.getAccounts().then(function(accounts){
 
 					var acc = accounts[0];
@@ -342,7 +308,7 @@
                 var cont = "";
                 cont = $('#contact').val();
 				window.ethereum.enable();
-				//web3.eth.enable();
+				// web3.eth.enable();
 				web3.eth.getAccounts().then(function(accounts){
 
 					var acc = accounts[0];
@@ -353,22 +319,12 @@
 				}).catch(function(tx){
 					console.log(tx);
 				})
+				// window.location.href = "/accreated.html";
             })
 			function solve() {
-						// contract.methods.getPid().call().then( function( info ) { 
-							// var Pid = "";
-							// Pid = $('#pid').val();
-							// console.log("Patient ID: ", info);
-							// if(info == Pid){
-								// document.getElementById('status').innerHTML = "ID Found";
-								window.location.href = "/accreated.html";
-							// }
-							// else{
-								// document.getElementById('status').innerHTML = "ID Not Found";
-							// }
-						// });
-						
-					}
+
+				window.location.href = "/accreated.html";		
+			}
         </script>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

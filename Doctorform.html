@@ -276,86 +276,10 @@
 
 		
 						contract=new web3.eth.Contract(abi, address);
-						// contract.methods.getName().call().then(function(nam){
-						// 	$('#name').html(nam);
-						// })
-		
-						// contract.methods.getContact().call().then(function(con){
-						// 	$('#contact').html(con);
-						// })
-		
-						// contract.methods.getPid().call().then(function(Pid){
-						// 	$('#pid').html(Pid);
-						// })
-		
-						// contract.methods.getEmail().call().then(function(email){
-						// 	$('#email').html(email);
-						// })
-		
-						// contract.methods.getDOB().call().then(function(dob){
-						// 	$('#dob').html(dob);
-						// })
+						
 					})
 		
-					// $('#update').click(function()
-					// {
-					// 	var amt = "";
-					//     amt = $('#recentD').val();
-					// 	window.ethereum.enable();
-					// 	//web3.eth.enable();
-					// 	web3.eth.getAccounts().then(function(accounts){
-		
-					// 		var acc = accounts[0];
-					// 		return contract.methods.recentDia(amt).send({from: acc});
-					// 	}).then(function(tx){
-					// 		console.log(tx);
-					//         console.log(tx.blockHash)
-					// 	}).catch(function(tx){
-					// 		console.log(tx);
-					// 	})
-					// })
-		
-					// $('#withdraw').click(function()
-					// {
-					// 	var amt = 0;
-					//     amt = parseInt($('#amount').val());
-					// 	window.ethereum.enable();
-					// 	//web3.eth.enable();
-					// 	web3.eth.getAccounts().then(function(accounts){
-		
-					// 		var acc = accounts[0];
-					// 		return contract.methods.spend(amt).send({from: acc});
-					// 	}).then(function(tx){
-					// 		console.log(tx);
-					//         console.log(tx.blockHash)
-					// 	}).catch(function(tx){
-					// 		console.log(tx);
-					// 	})
-					// })
-		
-					// $('#search').click(function()
-					// {
-					// 	var pid = "";
-					// 	pid = $('#pid').val();
-					// 	window.ethereum.enable();
-					// 	//web3.eth.enable();
-					// 	web3.eth.getAccounts().then(function(accounts){
-					// 		var acc = accounts[0];
-					// 		var temp=contract.methods.getPid().send({from: acc});
-					// 		if(temp==pid){
-					// 			console.log("ID Found");
-					// 		}
-					// 		else{
-					// 			console.log("ID Not Found");
-					// 		}
-					// 	}).then(function(tx){
-							
-					// 		console.log(tx);
-					// 		console.log(tx.blockHash)
-					// 	}).catch(function(tx){
-					// 		console.log(tx);
-					// 	})
-					// })
+					
 
 					function registerGetPid() {
 						contract.methods.getPid().call().then( function( info ) { 
@@ -372,10 +296,7 @@
 						});
 						
 					}
-					// var temp=document.getElementById('status').innerHTML;
-					// if(temp=="ID Found"){
-					// 		window.location.href = "http://127.0.0.1:8545/Doctor.html";
-					// }
+					
         </script>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
