@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Shop Homepage - Start Bootstrap Template</title>
@@ -12,9 +14,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+        <script src="js/Auth.js"></script>
+        
     </head>
-    <body>
+    <body onload="Auth()">
         <!-- Navigation-->
+        <?php
+            include 'db/admin.php'; 
+        ?>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">HIE using Blockchain</a>
@@ -76,7 +84,7 @@
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
-                           <!-- Product image-->
+                            <!-- Product image-->
                             <img class="card-img-top" src="admin.jpeg" alt="..." />
                             <!-- Product details-->
                             <div class="card-body p-4">
@@ -100,30 +108,33 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        
         <script>
+            
             // $(document).ready(function()
             //  {
-            //      web3 = new Web3(web3.currentProvider);
-            //      var address="0x338CB7cD8243A42ec95961b965E78DE8D066d524";
-            //      var abi =[];
- 
-            //      contract=new web3.eth.Contract(abi, address);
-            //      contract.methods.getName().call().then(function(nam){
-            //          $('#name').html(nam);
+                //      web3 = new Web3(web3.currentProvider);
+                //      var address="0x338CB7cD8243A42ec95961b965E78DE8D066d524";
+                //      var abi =[];
+                
+                //      contract=new web3.eth.Contract(abi, address);
+                //      contract.methods.getName().call().then(function(nam){
+                    //          $('#name').html(nam);
             //      })
  
             //      contract.methods.getContact().call().then(function(con){
-            //          $('#contact').html(con);
-            //      })
- 
-            //      contract.methods.getPid().call().then(function(Pid){
-            //          $('#pid').html(Pid);
-            //      })
- 
-            //      contract.methods.getEmail().call().then(function(email){
-            //          $('#email').html(email);
+                //          $('#contact').html(con);
+                //      })
+                
+                //      contract.methods.getPid().call().then(function(Pid){
+                    //          $('#pid').html(Pid);
+                    //      })
+                    
+                    //      contract.methods.getEmail().call().then(function(email){
+                        //          $('#email').html(email);
             //      })
  
             //      contract.methods.getDOB().call().then(function(dob){
@@ -208,7 +219,7 @@
             //          console.log(tx);
             //      })
  
-            //      window.location.href="http://127.0.0.1:8545/accreated.html";
+            //      window.location.href="/accreated.html";
             //  })
          </script>
     </body>
