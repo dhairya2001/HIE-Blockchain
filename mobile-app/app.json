@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "HIE-Mobile",
+    "slug": "hie-mobile",
+    "scheme": "hie-mobile",
+    "version": "1.0.0",
+    "sdkVersion": "51.0.0",
+    "platforms": ["ios", "android"],
+    "assetBundlePatterns": ["**/*"]
+  }
+}
